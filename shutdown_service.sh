@@ -21,9 +21,37 @@ if [[ "$1" == "uninstall" ]]; then
     exit 0
 fi
 
+# === INSTALL DEPENDENCIES ===
+install_dependencies() {
+    echo "Checking and installing dependencies..."
+
+    # Check for wget
+    if ! command -v wget &> /dev/null; then
+        echo "Installing wget..."
+        sudo apt-get update -qq && sudo apt-get install -y wget
+    fi
+
+    # Check for fbi (framebuffer image viewer)
+    if ! command -v fbi &> /dev/null; then
+        echo "Installing fbi..."
+        sudo apt-get update -qq && sudo apt-get install -y fbi
+    fi
+
+    # Check for Python3 PIL/Pillow
+    if ! python3 -c "from PIL import Image" &> /dev/null; then
+        echo "Installing python3-pil..."
+        sudo apt-get update -qq && sudo apt-get install -y python3-pil
+    fi
+
+    echo "Dependencies installed."
+}
+
 # === AUTO-INSTALL SERVICE IF NOT EXISTS ===
 if [[ ! -f "$SERVICE_FILE" ]]; then
     echo "Service not installed. Installing..."
+
+    # Install dependencies
+    install_dependencies
 
     # Download font if not exists
     if [[ ! -f "$FONT_FILE" ]]; then
