@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440">
+  <style>
+    .component { fill: white; stroke: #333; stroke-width: 2; }
+    .wire { stroke: #333; stroke-width: 2; fill: none; }
+    .wire-red { stroke: #c00; stroke-width: 2; fill: none; }
+    .wire-blue { stroke: #06c; stroke-width: 2; fill: none; }
+    .wire-green { stroke: #090; stroke-width: 2; fill: none; }
+    .label { font-family: Arial, sans-serif; font-size: 11px; fill: #333; }
+    .title { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #333; }
+    .terminal { fill: #333; }
+    .node { fill: #333; }
+  </style>
+  
+  <!-- Title -->
+  <text x="360" y="25" class="title" text-anchor="middle">PLC Timer Relay Control Circuit</text>
+  
+  <!-- ========== FB Fuse Box ========== -->
+  <rect x="50" y="100" width="80" height="60" class="component" rx="5"/>
+  <text x="90" y="125" class="title" text-anchor="middle">FB</text>
+  <text x="90" y="142" class="label" text-anchor="middle">Fuse 24V</text>
+  
+  <circle cx="130" cy="115" r="4" class="terminal"/>
+  <text x="138" y="119" class="label">OUT</text>
+  
+  <circle cx="130" cy="145" r="4" class="terminal"/>
+  <text x="138" y="149" class="label">-</text>
+  
+  <!-- ========== Diode (0.32V) ========== -->
+  <text x="200" y="95" class="label" text-anchor="middle">0.32V</text>
+  
+  <line x1="170" y1="115" x2="182" y2="115" class="wire"/>
+  <polygon points="182,105 182,125 202,115" stroke="#333" stroke-width="2" fill="none"/>
+  <line x1="202" y1="105" x2="202" y2="125" class="wire"/>
+  <line x1="202" y1="115" x2="230" y2="115" class="wire"/>
+  
+  <circle cx="170" cy="115" r="5" class="node"/>
+  <text x="158" y="135" class="label">Anode</text>
+  
+  <circle cx="230" cy="115" r="5" class="node"/>
+  <text x="218" y="135" class="label">Cathode</text>
+  
+  <!-- ========== PLC RevPi ========== -->
+  <rect x="300" y="80" width="130" height="180" class="component" rx="5"/>
+  <text x="365" y="105" class="title" text-anchor="middle">PLC (RevPi)</text>
+  
+  <circle cx="310" cy="140" r="4" class="terminal"/>
+  <text x="318" y="144" class="label">24V</text>
+  
+  <circle cx="310" cy="170" r="4" class="terminal"/>
+  <text x="318" y="174" class="label">GND</text>
+  
+  <circle cx="420" cy="200" r="4" class="terminal"/>
+  <text x="330" y="204" class="label">O_1/O_11</text>
+  
+  <circle cx="420" cy="230" r="4" class="terminal"/>
+  <text x="355" y="234" class="label">O_12</text>
+  
+  <circle cx="310" cy="245" r="4" class="terminal"/>
+  <text x="318" y="249" class="label">I_6/I_7</text>
+  
+  <!-- ========== Timer Relay (TR) ========== -->
+  <rect x="530" y="80" width="150" height="210" class="component" rx="5"/>
+  <text x="605" y="105" class="title" text-anchor="middle">TR (Timer Relay)</text>
+  
+  <line x1="530" y1="175" x2="680" y2="175" class="wire" stroke-dasharray="4,2"/>
+  <text x="540" y="125" class="label">COIL</text>
+  <text x="540" y="195" class="label">CONTACTS</text>
+  
+  <!-- TR Coil Terminals -->
+  <circle cx="540" cy="135" r="4" class="terminal"/>
+  <text x="548" y="139" class="label">+</text>
+  
+  <circle cx="540" cy="155" r="4" class="terminal"/>
+  <text x="548" y="159" class="label">-</text>
+  
+  <circle cx="540" cy="170" r="4" class="terminal"/>
+  <text x="548" y="174" class="label">T-T</text>
+  
+  <!-- Internal coil symbol -->
+  <path d="M 590 130 Q 598 125, 606 130 Q 614 135, 622 130 Q 630 125, 638 130" class="wire" fill="none"/>
+  <path d="M 590 145 Q 598 140, 606 145 Q 614 150, 622 145 Q 630 140, 638 145" class="wire" fill="none"/>
+  <line x1="590" y1="130" x2="590" y2="145" class="wire"/>
+  <line x1="638" y1="130" x2="638" y2="145" class="wire"/>
+  
+  <!-- TR Contact Terminals -->
+  <circle cx="540" cy="210" r="4" class="terminal"/>
+  <text x="548" y="214" class="label">C</text>
+  
+  <circle cx="540" cy="240" r="4" class="terminal"/>
+  <text x="548" y="244" class="label">NO</text>
+  
+  <circle cx="540" cy="270" r="4" class="terminal"/>
+  <text x="548" y="274" class="label">NC</text>
+  
+  <!-- Internal contact symbol -->
+  <line x1="590" y1="210" x2="605" y2="210" class="wire"/>
+  <circle cx="608" cy="210" r="3" stroke="#333" stroke-width="2" fill="white"/>
+  <line x1="611" y1="210" x2="628" y2="197" class="wire"/>
+  <circle cx="631" cy="197" r="3" stroke="#333" stroke-width="2" fill="white"/>
+  <line x1="634" y1="197" x2="650" y2="197" class="wire"/>
+  
+  <!-- ========== Battery ========== -->
+  <rect x="50" y="340" width="80" height="50" class="component" rx="5"/>
+  <text x="90" y="365" class="title" text-anchor="middle">BATT</text>
+  <text x="90" y="382" class="label" text-anchor="middle">24V</text>
+  
+  <circle cx="60" cy="340" r="4" class="terminal"/>
+  <text x="48" y="332" class="label">+</text>
+  <circle cx="120" cy="340" r="4" class="terminal"/>
+  <text x="125" y="332" class="label">-</text>
+  
+  <!-- ========== 1A Fuse ========== -->
+  <rect x="200" y="300" width="50" height="25" class="component" rx="3"/>
+  <text x="225" y="317" class="label" text-anchor="middle">1A</text>
+  <circle cx="200" cy="312" r="4" class="terminal"/>
+  <circle cx="250" cy="312" r="4" class="terminal"/>
+  
+  <!-- ========== WIRING ========== -->
+  
+  <!-- === 24V POWER (RED) === -->
+  
+  <!-- FB OUT to Diode Anode -->
+  <path d="M 134 115 L 170 115" class="wire-red"/>
+  
+  <!-- Diode Cathode to PLC 24V -->
+  <path d="M 230 115 L 270 115 L 270 140 L 306 140" class="wire-red"/>
+  
+  <!-- Diode Cathode up to top rail, across to TR NO -->
+  <path d="M 230 115 L 230 50 L 700 50 L 700 240 L 544 240" class="wire-red"/>
+  
+  <!-- Battery + up to 1A fuse -->
+  <path d="M 60 336 L 60 312 L 196 312" class="wire-red"/>
+  
+  <!-- 1A fuse up middle corridor to TR C -->
+  <path d="M 254 312 L 450 312 L 450 210 L 536 210" class="wire-red"/>
+  
+  <!-- === GROUND (BLUE) === -->
+  <!-- Ground bus at x=35 -->
+  
+  <!-- Battery - down then left to ground bus -->
+  <path d="M 124 340 L 150 340 L 150 410 L 35 410" class="wire-blue"/>
+  
+  <!-- FB - down to ground bus -->
+  <path d="M 134 145 L 150 145 L 150 410" class="wire-blue"/>
+  
+  <!-- PLC GND left then down to ground bus -->
+  <path d="M 306 170 L 260 170 L 260 410 L 35 410" class="wire-blue"/>
+  
+  <!-- TR Coil - left then down to ground bus -->
+  <path d="M 536 155 L 490 155 L 490 410 L 35 410" class="wire-blue"/>
+  
+  <!-- Ground symbol -->
+  <path d="M 35 410 L 35 422" class="wire-blue"/>
+  <path d="M 25 422 L 45 422" class="wire-blue"/>
+  <path d="M 29 428 L 41 428" class="wire-blue"/>
+  <path d="M 33 434 L 37 434" class="wire-blue"/>
+  
+  <!-- === FEEDBACK (GREEN) === -->
+  <!-- Anode up then right to PLC I_6/I_7 -->
+  <path d="M 170 115 L 170 65 L 280 65 L 280 245 L 306 245" class="wire-green"/>
+  
+  <!-- === CONTROL SIGNALS (BLACK) === -->
+  <!-- PLC O_1/O_11 to TR T-T (Trigger) -->
+  <path d="M 424 200 L 470 200 L 470 170 L 536 170" class="wire"/>
+  
+  <!-- PLC O_12 to TR Coil + -->
+  <path d="M 424 230 L 510 230 L 510 135 L 536 135" class="wire"/>
+  
+  <!-- Junction dots -->
+  <circle cx="35" cy="410" r="4" class="node"/>
+  <circle cx="150" cy="410" r="4" class="node"/>
+  <circle cx="150" cy="340" r="4" class="node"/>
+  <circle cx="260" cy="410" r="4" class="node"/>
+  <circle cx="490" cy="410" r="4" class="node"/>
+  <circle cx="230" cy="115" r="4" class="node"/>
+  <circle cx="170" cy="115" r="4" class="node"/>
+  
+</svg>

@@ -22,6 +22,10 @@ The script auto-configures based on hostname:
 | `lnk*`   | I_6   | O_11          | O_12       |
 | `tnk*`   | I_7   | O_1           | O_12       |
 
+## Circuit Diagram
+
+![PLC Timer Relay Circuit](plc-timer-relay-circuit.svg)
+
 ## Installation
 
 ```bash
